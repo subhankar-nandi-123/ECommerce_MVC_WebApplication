@@ -2,6 +2,13 @@
     ViewData["Title"] = "Welcome to SNMall";
 }
 
-<div class="d-flex justify-content-center w-100">
-    <h1>This is the landing page.</h1>
+@{
+    ViewData["PData"] = Model;
+}
+
+<div class="d-flex justify-content-start w-100" style="flex-direction: column;grid-row-gap: 10px;">
+    <h3>Popular Products:</h3>
+    <div class="w-100">
+        @Html.Partial("ProductsFieldPartial", @ViewData["PData"]);
+    </div>
 </div>

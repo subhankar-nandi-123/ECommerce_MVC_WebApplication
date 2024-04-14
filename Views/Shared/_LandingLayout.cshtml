@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] | SNMall</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/css/landingpage.css" rel="stylesheet" />
+    <link href="~/css/landingpage.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/productfieldpartial.css" rel="stylesheet" asp-append-version="true" />
+    <script src="~/js/productfieldpartial.js" asp-append-version="true"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
@@ -15,10 +19,6 @@
                 <a class="navbar-brand" asp-area="" asp-controller="Landing" asp-action="Index">
                     <img class="logoimg" src="~/images/shoplogo.jpeg" alt="Shop Logo" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="searchbar-main-container d-flex justify-content-center align-items-center">
                     <div class="searchbar-container d-flex justify-content-center">
@@ -29,22 +29,36 @@
 
 
                 <div class="d-flex justify-content-center align-items-center ms-lg-5">
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center user-login-section">
                         <i class="fa fa-user userIcon d-flex justify-content-center align-items-center" aria-hidden="true"></i>
                         
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn dropdown-toggle" type="button" onmouseover="$('.dropdown-menu').show()" onmouseout="$('.dropdown-menu').hide()">
                                 Login
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item active" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <span class="d-inline-flex justify-content-between align-items-center dropdown-item user-dropdown-item-first">
+                                        <a href="#" class="first" title="Sign Up">New Customer?</a>
+                                        <a href="#" class="second" title="Sign Up">Sign Up</a>
+                                    </span>
+                                </li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                <li>
+                                    <a class="dropdown-item d-inline-flex" href="#" title="My Profile">
+                                        <i class="fa fa-user d-flex justify-content-center align-items-center me-3" style="width: 10px;" aria-hidden="true"></i>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-inline-flex" href="#" title="My Orders">
+                                        <i class="fa fa-archive d-flex justify-content-center align-items-center me-3" style="width: 10px;" aria-hidden="true"></i>
+                                        My Orders
+                                    </a>
+                                </li>
+                                
                             </ul>
                         </div>
-
                     </div>
                 </div>
 
@@ -76,5 +90,9 @@
         </div>
     </footer>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $('.dropdown-menu').mouseenter(function () { $('.dropdown-menu').show(); });
+        $('.dropdown-menu').mouseleave(function () { $('.dropdown-menu').hide(); });
+    </script>
 </body>
 </html>

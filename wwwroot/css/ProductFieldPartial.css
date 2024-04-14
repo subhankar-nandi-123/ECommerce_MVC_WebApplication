@@ -1,0 +1,75 @@
+﻿
+
+.card{
+    cursor: pointer;
+}
+
+.card:hover{
+    box-shadow: 0 0 10px 2px #b5b5b5;
+}
+
+.card-img-top {
+    height: 250px !important;
+}
+
+.ratingBlock {
+    width: 40px;
+    max-width: 45px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 3px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ratingBlock i{
+    font-size: 9px;
+}
+
+.noofRatingBlock {
+    color: #878787;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.priceAfterOffBlock {
+    font-weight: bold;
+    color: #212121;
+    font-size: 16px;
+}
+
+.actualPriceBlock {
+    font-size: 14px;
+    color: #878787;
+}
+
+.offBlock {
+    color: #388e3c;
+    font-size: 13px;
+    letter-spacing: -.2px;
+    font-weight: 500;
+}
+
+
+.freeDelTag {
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.heart-default {
+    color: #c2c2c2;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.heart-fill {
+    color: #ff0000;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

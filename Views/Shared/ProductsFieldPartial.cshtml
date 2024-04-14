@@ -1,0 +1,73 @@
+﻿@{
+    var dataReceived = Model;
+}
+
+@* This is the main container which will contain the rows with 4 card in it. *@
+<div class="d-flex justify-content-start align-items-center w-100" style="flex-direction: column;grid-row-gap: 30px;">
+    @for (int i = 0; i < dataReceived.Count;i += 4){
+        @* This container is for each row which will contain 4 card in it. *@
+        <div class="d-flex justify-content-start align-items-center w-100" style="grid-column-gap: 20px">
+
+            @for (int j = i; (j < i + 4) && (j < dataReceived.Count); j++)
+            {
+                @* This is the card section which contains images and other details about the products. *@
+                <div class="card" style="width: calc(25% - 15px);">
+                    <i class="fa fa-heart heart-default" aria-hidden="true" onclick="toggleHeartDefault(this)"></i>
+                    <i class="fa fa-heart heart-fill" aria-hidden="true" onclick="toggleHeartFill(this)" style="display: none"></i>
+                    <img src="~/Images/Products/@dataReceived[j].ImageLink[@dataReceived[j].ImageLink.Count - 1]" class="card-img-top" alt="..." asp-append-version="true">
+                    <div class="card-body">
+                        <h5 class="card-title" style="max-height: 72px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">@dataReceived[j].Title</h5>
+                        @* <p class="card-text">@dataReceived[j].Description</p> *@
+                        <span class="w-100 d-flex justify-content-start" style="grid-column-gap: 8px;">
+
+                            @{
+                                string styleString = "";
+                                if (dataReceived[j].Rating < 3)
+                                {
+                                    styleString = "background-color: red;";
+                                }
+                                if (dataReceived[j].Rating >= 3 && dataReceived[j].Rating < 4)
+                                {
+                                    styleString = "background-color: #8e8e0f;";
+                                }
+                                if (dataReceived[j].Rating >= 4)
+                                {
+                                    styleString = "background-color: green;";
+                                }
+                            }
+
+                            @* This span will contain the rating of product with star icon. *@
+                            <span class="ratingBlock d-flex justify-content-center align-items-center" style="@styleString">
+                                @dataReceived[j].Rating
+                                <i class="fa fa-star ms-1" aria-hidden="true"></i>
+                            </span>
+
+                            @* This span will contain the no of ratings avilable for the product. *@
+                            <span class="noofRatingBlock ms-1 d-flex justify-content-center align-items-center">
+                                (@dataReceived[j].NoofRatings)
+                            </span>
+                        </span>
+
+                        <span class="w-100 d-flex justify-content-start mt-2" style="grid-column-gap: 8px;">
+                            <span class="priceAfterOffBlock d-flex justify-content-center align-items-center">
+                                ₹@dataReceived[j].PriceAfterOff
+                            </span>
+                            <span class="actualPriceBlock ms-1 d-flex justify-content-center align-items-center">
+                                <del>₹@dataReceived[j].Price</del>
+                            </span>
+                            <span class="offBlock ms-1 d-flex justify-content-center align-items-center">
+                                @(dataReceived[j].PercentageOff)% Off
+                            </span>
+                        </span>
+
+                        <span class="freeDelTag w-100 d-flex justify-content-start mt-2">
+                            Free Delivery
+                        </span>
+                    </div>
+                </div>
+            }
+        </div>
+
+    }
+
+</div>

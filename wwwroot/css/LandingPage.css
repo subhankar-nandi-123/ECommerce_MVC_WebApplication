@@ -1,5 +1,6 @@
-﻿*{
+﻿* {
     box-sizing: border-box;
+    font-family: Roboto, Arial, sans-serif;
 }
 
 .navbar {
@@ -55,3 +56,39 @@
     outline: none;
     box-shadow: none;
 }
+
+.dropdown-menu{
+    margin-top:2.5px;
+    width: 260px;
+    right: -155px;
+}
+
+.dropdown-menu.show {
+    right: -155px;
+}
+
+.user-login-section{
+    border-radius: 8px;
+}
+
+.user-login-section:hover {
+    background-color: #475af2;
+}
+
+.user-dropdown-item-first:hover{
+    background: none;
+}
+
+.first, .second {
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.first {
+    color: black;
+}
+
+.second {
+    font-weight: bold;
+}
+
